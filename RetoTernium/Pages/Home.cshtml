@@ -1,0 +1,49 @@
+﻿@page
+@model RetoTernium.Pages.HomeModel
+@{
+    <h1>@ViewData["Home"]</h1>
+}
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col">
+        </div>
+        <div class="col-6">
+            <h1 class="text-danger font-weight-bolder text-center">CELESTIALS</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                    </tr>
+                </thead>
+                <tbody class="font-weight-light">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><img src="image1.jpg" class="img-fluid justify-content-center" alt="Responsive image"></td>
+                        <td>Otto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div>
+        <p>@Model.HomeBody</p>
+        <br />
+        <br />
+        <p>Username: @Model.UsernameHome</p>
+    </div>
+
+

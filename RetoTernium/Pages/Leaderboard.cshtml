@@ -1,0 +1,55 @@
+﻿@page
+@model RetoTernium.Pages.LeaderboardModel
+@{
+    <h1>@ViewData["Title"]</h1>
+}
+
+
+<body>
+    <section class="header2">
+        <div class="toggle-modo">
+            <input type="button" value="Exámen" id="boton-examen">
+            <input type="button" value="Práctica" id="boton-practica">
+        </div>
+
+        <div>
+            <header>
+                <h1>Tabla de Clasificación</h1>
+            </header>
+        </div>
+    </section>
+
+    <section class="seccion-tabla">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Puntuacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>TestUsuario</td>
+                    <td>550</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="info">
+        <br />
+        <br />
+        <div>
+            <a href="#">Más Información</a>
+        </div>
+        <div>
+            <h3>Asistente de Entrenamiento de Inspector</h3>
+        </div>
+    </section>
+
+</body>
+
+</html>
+

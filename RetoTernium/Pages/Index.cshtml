@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<body class="login-bg">
+    <div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <div class="col-md-12 loginbox text-center text-white">
+                        <h3 class="text-center text-white pt-5 font-weight-bolder">Login</h3>
+                        <br />
+                        <form method="post">
+                            Usuario:    <input asp-for="Usuario.username" /> <br /><br />
+                            Contraseña: <input asp-for="Usuario.password" /><br /><br />
+                            <input id="btnLogin" type="submit" value="Login" />
+                            <label>@Model.Mensaje</label>
+                            <br />
+                            <br />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
