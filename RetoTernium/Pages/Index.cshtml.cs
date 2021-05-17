@@ -10,6 +10,7 @@ using RetoTernium.Model;
 using System.Web;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
@@ -24,6 +25,9 @@ namespace RetoTernium.Pages
 
         [BindProperty]
         public Login Usuario { get; set; }
+
+        [BindProperty]
+        public Logged logged { get; set; }
 
         [BindProperty]
         public string Mensaje { get; set; }
@@ -50,6 +54,7 @@ namespace RetoTernium.Pages
             if (response.IsSuccessStatusCode)
             {
                 responseContent = await response.Content.ReadAsStringAsync();
+                logged = JsonConvert.DeserializeObject<Logged>(responseContent);
 
                 string connectionString = "Server=127.0.0.1;Port=3306;Database=terniumbd;Uid=root;password=celestials;";
                 MySqlConnection conexion = new MySqlConnection(connectionString);
@@ -68,10 +73,10 @@ namespace RetoTernium.Pages
             }
 
             //SET HEADERS
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("auth_key", responseContent);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("auth_key", logged.token);
 
 
-            return RedirectToPage("Home", new { result = responseContent });
+            return RedirectToPage("Home", new { result = logged.user });
         }
 
 
