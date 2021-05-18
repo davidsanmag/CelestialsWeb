@@ -74,6 +74,7 @@ namespace RetoTernium.Pages
 
             //SET HEADERS
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("auth_key", logged.token);
+            HttpContext.Session.SetString("user", logged.user);
 
 
             return RedirectToPage("Home", new { result = logged.user });

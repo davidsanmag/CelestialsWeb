@@ -43,10 +43,10 @@ namespace RetoTernium.Pages
         public async Task OnGetAsync(string result)
         {
             HomeBody = result;
-            UsernameHome = HttpContext.Session.GetString("username");
+            UsernameHome = HttpContext.Session.GetString("user");
 
             string responseContent = "[]";
-            string URL = $"https://chatarrap-api.herokuapp.com/users/{HomeBody}";
+            string URL = $"https://chatarrap-api.herokuapp.com/users/{UsernameHome}";
             //string URL = $"https://chatarrap-api.herokuapp.com/users/5fa5f0726061085300019117";
             //Buscamos el recurso
             Uri baseURL = new Uri(URL);
@@ -58,12 +58,13 @@ namespace RetoTernium.Pages
 
             responseContent = await response.Content.ReadAsStringAsync();
             user = JsonConvert.DeserializeObject<User>(responseContent);
-            password = user.password;
             username = user.username;
             streak = user.streak;
             scores = user.scores;
             createdAt = user.createdAt;
             updatedAt = user.updatedAt;
+
+
         }
 
     }
